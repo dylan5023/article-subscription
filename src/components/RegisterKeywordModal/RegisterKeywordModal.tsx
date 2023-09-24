@@ -30,7 +30,7 @@ function RegisterKeywordModal({
   const handleSubmit = async () => {
     if (keyword !== "") {
       await registerKeyword({ keyword });
-      alert("Registed.");
+      alert("Registered.");
       onOpenClose();
     } else {
       alert("Put the keyword");

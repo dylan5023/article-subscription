@@ -7,6 +7,8 @@ import {
   collection,
   query,
   where,
+  setDoc,
+  doc,
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -35,6 +37,10 @@ export class Database {
   //   addDoc will generate id
   async addData<T extends object>(collections: string, createData: T) {
     return addDoc(collection(this.db, collections), createData);
+  }
+
+  async setData<T extends object>(collections: string, key: string, value: T) {
+    return setDoc(doc(this.db, collections, key), value);
   }
 
   //   to check data if it exists or not
