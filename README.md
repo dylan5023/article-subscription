@@ -14,7 +14,8 @@ pnpm dev
 bun dev
 ```
 
-Open [[http://localhost:3000](http://localhost:3000) ](https://aritlcle-crawler-project-n1chrscvd-dylan5023.vercel.app/)  with your browser to see the result.
+Open [[http://localhost:3000](http://localhost:3000) ]with your browser to see the result.
+Or Open https://aritlcle-crawler-project-n1chrscvd-dylan5023.vercel.app/
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
