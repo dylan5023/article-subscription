@@ -1,12 +1,12 @@
 import { FirebaseApp, getApp, initializeApp } from "firebase/app";
 import {
-  Firestore,
   getFirestore,
+  Firestore,
   addDoc,
-  getDocs,
   collection,
   query,
   where,
+  getDocs,
   setDoc,
   doc,
 } from "firebase/firestore";
@@ -19,7 +19,9 @@ const firebaseConfig = {
   messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGINGSENDERID,
   appId: process.env.NEXT_PUBLIC_FIREBASE_APPID,
 };
+
 export let app: FirebaseApp;
+
 try {
   app = getApp("app");
 } catch (e) {
@@ -34,7 +36,6 @@ export class Database {
   }
   private readonly db: Firestore;
 
-  //   addDoc will generate id
   async addData<T extends object>(collections: string, createData: T) {
     return addDoc(collection(this.db, collections), createData);
   }
@@ -43,13 +44,11 @@ export class Database {
     return setDoc(doc(this.db, collections, key), value);
   }
 
-  //   to check data if it exists or not
   async getData(collections: string, key: string, value: string) {
     const querySnapshot = await getDocs(
-      query(collection(db, collections), where(key, "==", value))
+      query(collection(this.db, collections), where(key, "==", value))
     );
 
-    // initialize results
     let result: any = [];
     querySnapshot.forEach((doc) => {
       result.push(doc.data());
@@ -58,7 +57,6 @@ export class Database {
     return result;
   }
 
-  //   get all data from documents
   async getAllData(collections: string) {
     const querySnapshot = await getDocs(collection(this.db, collections));
 

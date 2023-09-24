@@ -1,4 +1,4 @@
-import ArticleItem from "../Common/ArticleItem/ArticleItem";
+import ArticleItem from "../Common/ArticleItem";
 import { getArticles } from "@/app/api/article/getArticles";
 
 async function ArticleList() {

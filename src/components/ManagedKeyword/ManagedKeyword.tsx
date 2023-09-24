@@ -1,15 +1,14 @@
-"use client";
-import { Chip } from "@nextui-org/react";
+import { getKeywords } from "@/app/api/keyword/getKeywords";
+
 async function ManagedKeyword() {
-  const keywords = ["Node.js", "nest.js", "react", "crawler"];
+  const { keywords } = await getKeywords();
+  console.log(keywords);
   return (
     <div className="py-4 font-semibold text-gray-800 px-4">
-      <div className="text-lg mb-3 ">Registered keyword</div>
+      <div className="text-lg mb-3 ">Registered Keyword</div>
       <div className="flex gap-x-2">
         {keywords &&
-          keywords.map((keyword) => (
-            <div key={keyword.keyword}>{keyword.keyword}</div>
-          ))}
+          keywords.map((word) => <div key={word.keyword}>{word.keyword}</div>)}
       </div>
     </div>
   );

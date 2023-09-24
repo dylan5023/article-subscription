@@ -1,10 +1,12 @@
 import { Article } from "@/types";
 
 export const getArticles = async () => {
-  const response = await fetch(`https://localhost:3000/api/article`);
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/article`
+  );
 
   if (!response.ok) {
-    throw new Error("unknown error");
+    return { articles: [] };
   }
 
   return (await response.json()) as { articles: Article[] };
